@@ -30,15 +30,31 @@
                         <input class="color-picker " type="color" id="colorpicker" value="#000000" oninput="onSetColor(event)">
                     </div>
                     <div class="container-2">
-                        <img src="/icons/up-and-down-opposite-double-arrows-side-by-side.png" class="switch-line-btn  btn-text item-6" onclick="onSwitchLine()"></img>
-                        <img src="/icons/align-to-right.png" class="right-btn btn-text "></img>
-                        <img src="/icons/align-to-left.png" class="left-btn btn-text "></img>
+                        <img src="/icons/up-and-down-opposite-double-arrows-side-by-side.png" class="switch-line-btn  btn-text " onclick="onSwitchLine()"></img>
+                        <img onclick="onMoveFont('+')" src="/icons/align-to-right.png" class="right-btn btn-text "></img>
+                        <img onclick="onMoveFont('-')" src="/icons/align-to-left.png" class="left-btn btn-text "></img>
                     </div>
                     <div class="container-3">
-                        <img src="/icons/increase font - icon.png" onclick="onResizeFont(this.value)" value="+" class="btn-text"></img>
-                        <img src="/icons/decrease font - icon.png" onclick="onResizeFont(this.value)" value="-" class="btn-text"></img>
-                        <img src="/icons/close.png" class="modal-closer-btn btn-text" onclick="onCloseModal()"></img>
+                        <img src="/icons/increase font - icon.png" onclick="onResizeFont('+')" class="btn-text">
+                        </img>
+                        <img src="/icons/decrease font - icon.png" onclick="onResizeFont('-')" class="btn-text"></img>
+                        <img src="/icons/add.png" class="btn-text" onclick="onSetNewLine()"></img>
+                        <img onclick="onDeleteMeme()" src="/icons/trash.png" class="btn-text">
+                        <select onchange="onSetFont(this.value)">
+                            <option value="">Choose Font</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                            <option value="Verdana">Verdana</option>
+                            <option value="Courier New">Courier New</option>
+                            <option value="Sans-serif">Sans-serif</option>
+                            <option value="Bold">Bold</option>
+                            <option value="Calibri">Calibri</option>
+                        </select>
+                        <button class="download-btn btn-text"><a href="#" onclick="onDownloadCanvas(this)"
+                            download="">Download</a></button>
                         <img src="/icons/facebook (1).png" class="share-fb btn-text" onclick="uploadImg()"></img>
+                        <img src="/icons/close.png" class="modal-closer-btn btn-text" onclick="onCloseModal()"></img>
+                        <p class="user-msg"></p>
+                        <div class="share-container"></div>
                     </div>
                 </div>
             </section>

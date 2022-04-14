@@ -7,6 +7,10 @@ html {
     font-family: lato-700;
 }
 
+body {
+    height: 100vh;
+}
+
 .main-container {
     min-height: 100vh;
     display: flex;

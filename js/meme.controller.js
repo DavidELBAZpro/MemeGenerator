@@ -24,12 +24,12 @@ function renderMemes() {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         let lines = meme.lines
-        console.log('line', lines);
         lines.forEach(line => {
-            gCtx.font = `bold ${line.size}px  Verdana`;
+            gCtx.font = `${line.size}px  ${line.font}`;
             gCtx.fillStyle = line.color
             gCtx.textAlign = line.align
             gCtx.fillText(line.txt, line.loc, line.height)
+            gCtx.strokeText(line.txt, line.loc, line.height)
         })
     }
 }
@@ -76,5 +76,33 @@ function onSwitchLine() {
 function onResizeFont(sizeChange) {
     console.log('meme i want', sizeChange);
     resizeFont(sizeChange)
+    renderMemes()
+}
+
+function onMoveFont(sizeChange) {
+    console.log(sizeChange);
+    moveFont(sizeChange)
+    renderMemes()
+}
+
+function onSetFont(font) {
+    setFont(font)
+    renderMemes()
+}
+
+function onDeleteMeme() {
+    deleteMemes()
+    renderMemes()
+    document.querySelector('.input-text').value = ''
+}
+
+function onDownloadCanvas(elLink) {
+    console.log('elLink', elLink);
+    elLink.href = gElCanvas.toDataURL()
+    elLink.download = 'New-Meme.jpg'
+}
+
+function onSetNewLine() {
+    setNewLine()
     renderMemes()
 }

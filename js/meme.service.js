@@ -13,7 +13,8 @@ let gMeme = {
             align: 'left',
             color: '',
             height: 50,
-            loc: 40
+            loc: 40,
+            font: 'Verdana'
         },
         {
             txt: 'insert bottom-text',
@@ -21,7 +22,8 @@ let gMeme = {
             align: 'left',
             color: '',
             height: 550,
-            loc: 40
+            loc: 40,
+            font: 'Verdana'
         }
     ]
 }
@@ -69,21 +71,55 @@ function setLineTxt(text, lineIdx) {
 
 function setRange(range, lineIdx) {
     gMeme.lines[lineIdx].size = range
-    console.log('ran1', range);
 }
 
 function setColor(color, lineIdx) {
     gMeme.lines[lineIdx].color = color
-    console.log('clr1', color);
 }
 
 
 function setSwitchLine() {
     gMeme.selectedLineIdx = (gMeme.selectedLineIdx === 0) ? 1 : 0
-    console.log('switch', gMeme.selectedLineIdx)
 }
 
 function resizeFont(sizeChange) {
     console.log('sizeChange', sizeChange)
     gMeme.lines[gMeme.selectedLineIdx].size += sizeChange === '+' ? 1 : -1
+}
+
+function moveFont(sizeChange) {
+    console.log('sizeChange', sizeChange)
+    gMeme.lines[gMeme.selectedLineIdx].loc += sizeChange === '+' ? 1 : -1
+}
+
+function setFont(font) {
+    gMeme.lines[gMeme.selectedLineIdx].font = font
+}
+
+function deleteMemes() {
+    gMeme.lines[gMeme.selectedLineIdx].txt = ''
+}
+
+function setNewLine(txt = 'Type your text') {
+    const { x, y } = getCoords()
+    gMeme.lines.push({
+        x,
+        y,
+        txt,
+        size: 40,
+        align: 'center',
+        color: getRandomColor(),
+        font: 'Verdana',
+    })
+}
+
+function getCoords() {
+    const lineCount = gMeme.lines.length
+    if (lineCount === 0 || lineCount > 2) {
+        return { x: 300, y: 300 }
+    } else if (lineCount === 1) {
+        return { x: gElCanvas.width / 2, y: gElCanvas.height / 3.5 }
+    } else {
+        return { x: gElCanvas.width / 2, y: gElCanvas.height / 1.5 }
+    }
 }
