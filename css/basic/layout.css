@@ -1,0 +1,5 @@
+    @media (max-width: 1020px) {
+        .editor-meme {
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        }
+    }
