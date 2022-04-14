@@ -1,0 +1,66 @@
+.canvas-container {
+    background-color: rgb(72, 130, 168);
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.editor-modal-open {
+    display: flex;
+    flex-grow: 8;
+    background-color: lightpink;
+    left: 0;
+    top: 0;
+    transition: 0.4s;
+}
+
+.close-modal {
+    transition: 0.3s;
+    display: none;
+}
+
+.container-1 {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    padding-bottom: 10%;
+    gap: 20px;
+    width: 40%;
+}
+
+.container-2 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container-3 {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.editor-meme {
+    flex-grow: 5;
+    justify-content: center;
+    padding: 50px;
+}
+
+.share-fb.btn-text:hover {
+    background-color: #7d8edb;
+}
+
+.btn-text {
+    height: 60px;
+    width: 60px;
+}
+
+.btn-text:hover {
+    cursor: pointer;
+    border: 1px white solid;
+    border-radius: 10%;
+}

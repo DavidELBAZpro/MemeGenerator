@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    font-family: lato-700;
+}
+
+.main-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+header {
+    flex-grow: 2;
+}
+
+main {
+    flex-grow: 10;
+}
+
+footer {
+    flex-grow: 3;
+}

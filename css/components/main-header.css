@@ -1,0 +1,33 @@
+.main-header {
+    background-color: var(--color1);
+    color: rebeccapurple;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.title.logo {
+    object-fit: fill;
+}
+
+.title.logo img:hover {
+    cursor: pointer;
+}
+
+
+/* .editor {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+   
+} */
+
+.cat-btn div:hover {
+    color: rgb(155, 142, 151);
+    cursor: pointer;
+    border-radius: 5px;
+}

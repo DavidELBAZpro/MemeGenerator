@@ -1,0 +1,61 @@
+<DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Sprint2 - MemesGenerator</title>
+        <div class="main-container">
+    </head>
+
+    <body onload="onInit()">
+        <header class="main-header">
+            <img onclick="onCloseModal()" class="title-logo" src="/logo/LOGO.png" alt="">
+            <div class="cat-btn">
+                <div class="gallery-btn" onclick="onCloseModal()">GALLERY</div>
+                <div class="about-btn" onclick="onCloseModal()">ABOUT ME</div>
+            </div>
+        </header>
+
+        <main>
+            <section class="gallery"></section>
+            <section class="canvas-container editor-modal close-modal ">
+                <canvas id="canvas" height="600" width="600" style="height: 50%;width: 40%;"></canvas>
+                <div class="editor-meme ">
+                    <div class="container-1">
+                        <input class="input-text " type="text" name="text" placeholder="Type your text..." oninput="onSetLine(event)">
+                        <input class="item-3 range-setter" type="range" id="slider" name="range" placeholder="" min="15" max="50" value="30" oninput="onSetRange(event)">
+                        <input class="color-picker " type="color" id="colorpicker" value="#000000" oninput="onSetColor(event)">
+                    </div>
+                    <div class="container-2">
+                        <img src="/icons/up-and-down-opposite-double-arrows-side-by-side.png" class="switch-line-btn  btn-text item-6" onclick="onSwitchLine()"></img>
+                        <img src="/icons/align-to-right.png" class="right-btn btn-text "></img>
+                        <img src="/icons/align-to-left.png" class="left-btn btn-text "></img>
+                    </div>
+                    <div class="container-3">
+                        <img src="/icons/increase font - icon.png" onclick="onResizeFont(this.value)" value="+" class="btn-text"></img>
+                        <img src="/icons/decrease font - icon.png" onclick="onResizeFont(this.value)" value="-" class="btn-text"></img>
+                        <img src="/icons/close.png" class="modal-closer-btn btn-text" onclick="onCloseModal()"></img>
+                        <img src="/icons/facebook (1).png" class="share-fb btn-text" onclick="uploadImg()"></img>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <a href="https://www.facebook.com/dvd.elbaz/" target="_blank"><img class="btn-text" src="/icons/facebook (1).png" alt=""></a>
+            <a href="https://github.com/DavidELBAZpro/" target="_blank"><img class="btn-text" src="/icons/github-logo.png" alt=""></a>
+
+        </footer>
+        <script src="js/storage.service.js"></script>
+        <script src="js/utils.js"></script>
+        <script src="js/meme.service.js"></script>
+        <script src="js/gallery.controller.js"></script>
+        <script src="js/meme.controller.js"></script>
+        <script src="js/share.service.js"></script>
+
+    </body>
+
+    </html>
