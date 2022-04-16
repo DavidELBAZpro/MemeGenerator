@@ -12,20 +12,29 @@
 
     <body onload="onInit()">
         <header class="main-header">
-            <img onclick="onCloseModal()" class="title-logo" src="logo/LOGO.png" alt="">
-            <div class="cat-btn">
-                <div class="gallery-btn" onclick="onCloseModal()">GALLERY</div>
-                <div class="about-btn" onclick="onCloseModal()">ABOUT ME</div>
-            </div>
+            <img onclick="onCloseModal()" class="title-logo logo" src="logo/LOGO.png" alt="">
+            <ul class="nav-bar flex clean-list">
+                <li>
+                    <a onclick="onCloseModal()" href="#" class="flex justify-center align-center active">GALLERY</a>
+                </li>
+                <li>
+                    <a href="#" class="flex justify-center align-center">MY MEMES</a>
+                </li>
+                <li><a href="https://www.linkedin.com/in/david-elbaz-135698138/" target="_blank" class="flex justify-center align-center">ABOUT ME</a></li>
+            </ul>
+
+            <button class="btn-toggle-menu" onclick="toggleMenu()">☰</button>
+            <!-- <div class="gallery-btn" onclick="onCloseModal()">GALLERY</div>
+                <div class="about-btn" onclick="onCloseModal()">ABOUT ME</div> -->
         </header>
 
         <main>
             <section class="gallery"></section>
             <section class="canvas-container editor-modal close-modal ">
-                <canvas id="canvas" height="600" width="600" style="height: 50%;width: 40%;"></canvas>
+                <canvas id="canvas" height="700" width="700" style="height: 100%;width: 80%;"></canvas>
                 <div class="editor-meme ">
                     <div class="container-1">
-                        <input class="input-text " type="text" name="text" placeholder="Type your text..." oninput="onSetLine(event)">
+                        <input class="input-text " type="text" name="text" placeholder="Type your text..." oninput="onSetLine(event.target.value)">
                         <input class="item-3 range-setter" type="range" id="slider" name="range" placeholder="" min="15" max="50" value="30" oninput="onSetRange(event)">
                         <input class="color-picker " type="color" id="colorpicker" value="#000000" oninput="onSetColor(event)">
                     </div>
@@ -38,7 +47,7 @@
                         <img src="icons/increase font - icon.png" onclick="onResizeFont('+')" class="btn-text">
                         </img>
                         <img src="icons/decrease font - icon.png" onclick="onResizeFont('-')" class="btn-text"></img>
-                        <img src="icons/add.png" class="btn-text" onclick="onSetNewLine()"></img>
+                        <img src="icons/add.png" class="btn-text" onclick="onAddLine(event.target.default)"></img>
                         <img onclick="onDeleteMeme()" src="icons/trash.png" class="btn-text">
                         <select onchange="onSetFont(this.value)">
                             <option value="">Choose Font</option>
@@ -49,8 +58,7 @@
                             <option value="Bold">Bold</option>
                             <option value="Calibri">Calibri</option>
                         </select>
-                        <button class="download-btn btn-text"><a href="#" onclick="onDownloadCanvas(this)"
-                            download="">Download</a></button>
+                        <a href="#" onclick="onDownloadCanvas(this)" download=""><img class="btn-text" src="/icons/download-btn.png" alt=""></a>
                         <img src="icons/facebook (1).png" class="share-fb btn-text" onclick="uploadImg()"></img>
                         <img src="icons/close.png" class="modal-closer-btn btn-text" onclick="onCloseModal()"></img>
                         <p class="user-msg"></p>

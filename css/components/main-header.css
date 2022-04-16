@@ -8,11 +8,13 @@
     padding: 20px;
 }
 
-.title.logo {
-    object-fit: fill;
+.title-logo {
+    /* object-fit: fill; */
+    max-width: 40%;
+    max-height: 90%;
 }
 
-.title.logo img:hover {
+.title-logo:hover {
     cursor: pointer;
 }
 

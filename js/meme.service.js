@@ -65,8 +65,8 @@ function getMeme() {
     return gMeme
 }
 
-function setLineTxt(text, lineIdx) {
-    gMeme.lines[lineIdx].txt = text
+function setLineTxt(txt, lineIdx) {
+    gMeme.lines[lineIdx].txt = txt
 }
 
 function setRange(range, lineIdx) {
@@ -100,26 +100,17 @@ function deleteMemes() {
     gMeme.lines[gMeme.selectedLineIdx].txt = ''
 }
 
-function setNewLine(txt = 'Type your text') {
-    const { x, y } = getCoords()
-    gMeme.lines.push({
-        x,
-        y,
-        txt,
-        size: 40,
-        align: 'center',
+function addLine() {
+    const newLine = {
+        txt: '',
+        size: 25,
+        align: 'right',
         color: getRandomColor(),
-        font: 'Verdana',
-    })
-}
-
-function getCoords() {
-    const lineCount = gMeme.lines.length
-    if (lineCount === 0 || lineCount > 2) {
-        return { x: 300, y: 300 }
-    } else if (lineCount === 1) {
-        return { x: gElCanvas.width / 2, y: gElCanvas.height / 3.5 }
-    } else {
-        return { x: gElCanvas.width / 2, y: gElCanvas.height / 1.5 }
+        strokeColor: 'black',
+        height: gMeme.lines[gMeme.lines.length - 1].height + 50,
+        impact: 'Verdana'
     }
+    gMeme.selectedLineIdx = gMeme.lines.length
+    gMeme.lines.push(newLine)
+    console.log('newline', gMeme);
 }

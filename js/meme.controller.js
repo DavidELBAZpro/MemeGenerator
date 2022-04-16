@@ -34,11 +34,10 @@ function renderMemes() {
     }
 }
 
-function onSetLine(ev) {
-    ev.preventDefault()
-    let selectedLine = getMeme().selectedLineIdx
-    const text = ev.target.value
-    setLineTxt(text, selectedLine)
+function onSetLine(txt) {
+    // if (txt.length > 28) return
+    var selectedLine = getMeme().selectedLineIdx
+    setLineTxt(txt, selectedLine)
     renderMemes()
 }
 
@@ -90,10 +89,22 @@ function onSetFont(font) {
     renderMemes()
 }
 
+function onAddLine(ev) {
+    addLine(ev)
+    renderInputPlaceholder()
+    onSetLine(ev)
+    document.querySelector('.input-text').value = ''
+}
+
 function onDeleteMeme() {
     deleteMemes()
     renderMemes()
     document.querySelector('.input-text').value = ''
+}
+
+function renderInputPlaceholder() {
+    let meme = getMeme()
+    document.querySelector('.input-text').placeholder = `Type line num: ${meme.selectedLineIdx + 1}`
 }
 
 function onDownloadCanvas(elLink) {
@@ -102,7 +113,7 @@ function onDownloadCanvas(elLink) {
     elLink.download = 'New-Meme.jpg'
 }
 
-function onSetNewLine() {
-    setNewLine()
-    renderMemes()
-}
+// function onSetNewLine() {
+//     setNewLine()
+//     renderMemes()
+// }

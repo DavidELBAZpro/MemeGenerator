@@ -1,7 +1,7 @@
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 15px;
+    gap: 10px;
 }
 
 .gallery img {
@@ -10,10 +10,34 @@
     object-fit: cover;
 }
 
-.gallery:hover {
+.gallery img:hover {
     cursor: pointer;
+    border: 6px solid lightpink;
 }
 
 .gallery-close {
     display: none;
+}
+
+.btn-toggle-menu {
+    border: unset;
+    color: rebeccapurple;
+    background-color: unset;
+}
+
+.main-header .nav-bar a {
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    transition: box-shadow .4s;
+}
+
+.main-header .nav-bar a:hover {
+    color: var(--color2);
+    box-shadow: inset 0px -6px 0 rebeccapurple;
+}
+
+.main-header .nav-bar>* {
+    border-inline-end: 1px solid var(--primary-clr-900);
+    background-color: var(--primary-clr-800);
 }

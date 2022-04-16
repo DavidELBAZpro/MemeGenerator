@@ -22,6 +22,11 @@ header {
     flex-grow: 2;
 }
 
+a {
+    text-decoration: none;
+    color: rebeccapurple;
+}
+
 main {
     flex-grow: 10;
 }
